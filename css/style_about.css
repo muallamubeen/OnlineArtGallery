@@ -1,0 +1,93 @@
+body{
+    height: 200vh;
+    font-size: 20px;
+ }
+
+ .context {
+    margin: 30px 70px;
+    background-color: #2b2d33;
+ }
+
+.img_deg{
+    padding: 30px;
+    float: right;
+    width: 600px ;
+    height: 400px;
+}
+
+.about {
+    height: 150vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.flex{
+    display: flex;
+    margin: 20px;
+    padding: 10px;
+}
+
+.para{
+    line-height: 30px;
+    width: 100%;
+    padding-left: 100px;
+}
+
+
+.foot{ 
+    display: flex;
+    height: 500px;
+    width: 100%;
+    background-color:#777a78;
+    justify-content: space-evenly;
+    font-size: 23px;
+}
+
+.DAB{
+
+    height: 300px;
+    width: 20%;
+    padding-top: 30px;
+    margin: 30px 100px;
+    line-height: 45px;
+}
+
+.line{
+    margin-left: 150px;
+}
+
+.img{
+    display: inline-block;
+    line-height: 50px;
+    text-align: center;
+    margin: 100px auto;
+    padding: 50px;
+    width: 100%;
+}
+.join{
+    padding-top: 70px;
+    margin-left: 20px;
+}
+.ICONS {
+       padding-top: 15px;
+       
+}
+.icons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    font-size: 30px;
+    line-height: 50px;
+    padding: 30px;
+    margin: 10px;
+}
+
+ .fa-brands{
+    justify-self: center;
+ }  
+ 
+ .icons p{
+    margin-top: -10px;
+    margin-left:20px;
+ }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Artwork</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style_login.css">
+</head>
+<body>
+    <header style="background-color: rgb(23, 20, 65, 0.7); padding: 10px;">
+        <img class="logo" src="img/logo-1.jpg" alt="logo">
+        <h1>Add Artwork</h1>
+        <a class="cta" href="artist_pro.html"><button>Profile</button></a>
+    </header>
+    <div class="form-block">
+        <form action="insert_artwork.php" method="post" enctype="multipart/form-data">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" required><br><br>
+            <label for="image">Image_URL:</label>
+            <input type="url" id="image" name="image" accept="img/png, img/jpeg" required/><br><br>
+            <label for="description">Description:</label><br>
+            <textarea name="description" id="description" rows="4" cols="50" required></textarea><br><br>
+            <label for="price">Price:</label>
+            <input type="number" name="price" id="price" required><br><br>
+            <label for="category">Category:</label>
+            <select name="category" id="category" required>
+                <option value="ABSTRACT">Abstract</option>
+                <option value="LANDSCAPE">Landscape</option>
+                <option value="CALLIGRAPHY">Calligraphy</option>
+                <option value="DRAWING">Drawing</option>
+                <option value="NATURE PHOTOGRAPHY">Nature Photography</option>
+                <option value="CERAMIC">Ceramic</option>
+                <option value="STILL LIFE">Still Life</option>
+            </select><br><br>
+            <input type="submit" name="submit" value="Add Artwork">
+        </form>
+    </div>
+</body>
+</html>

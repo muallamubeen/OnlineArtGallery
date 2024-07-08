@@ -1,0 +1,45 @@
+<?php 
+    require_once 'login.php';
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Login | Signin</title>
+        <meta name="descripton" content="">
+        <meta name="Viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="style_login.css">
+    </head>
+    
+    <body>
+        <header style="background-color: rgb(23, 20, 65, 0.7); padding: 10px;">
+            <img class="logo" src="img/logo-1.jpg" alt="logo">
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <a class="cta" href="signup.html"><button>Signup</button></a>
+        </header>
+        <div class="form-block">
+        <h2>Login</h2>
+        <form id="contact" method="post" action="login.php">
+            <div>
+                <label for="contact_email">Email:</label>
+                <input required="" type="email" id="contact_email" name="email">
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input required="" type="password" id="password" name="password">
+            </div>
+            <div id="contact_submit">
+                <button type="submit" name="submit" value="LOGIN">SUBMIT</button>
+            </div>
+        </form>
+        </div>
+    </body>
+</html>

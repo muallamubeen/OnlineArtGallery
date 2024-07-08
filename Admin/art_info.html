@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Panel</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+    <style>
+        *{
+            color: #edf0f1;
+        }
+        body {
+	background-color: #24252a;
+	font-family: Arial, sans-serif;
+    }
+
+    table {
+        background-color: #2b2d33;
+        border-collapse: collapse;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        margin: 50px auto;
+        padding: 30px;
+        width: 80%;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 15px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #ebbb55;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #2b2d33;
+    }
+
+    tr:hover {
+        background-color: #2b2d33;
+    }
+
+    form {
+        margin-top: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"] {
+        border: 1px solid #24252a;
+        border-radius: 5px;
+        padding: 10px;
+        width: 100%;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    .error {
+        color: red;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+    </style>
+</head>
+<body>
+        <header style="background-color: rgb(23, 20, 65, 0.7); padding: 10px;">
+            <h1>Admin Panel</h1>
+            <nav>
+                <ul class="nav_links">
+                    <li><a href="user_info.html">User_Info</a></li>
+                </ul>
+            </nav>
+            
+            <a class="cta" href="../logout.php"><button>Logout</button></a>
+        </header>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Price</th>
+                <th>Category</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody id="art">
+		</tbody>
+	</table>
+    <script>
+        document.addEventListener("DOMContentLoaded", function loadCart(user_id) {
+    // Perform an AJAX request to load_cart.php
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            // Insert the response from the PHP file into the HTML element with the id 'art'
+            document.getElementById("art").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("POST", "load_artwork.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("user_id=" + user_id);
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Art Cart</title>
+    <link rel="stylesheet"  href="css/style.css">
+    <style>
+        body {
+            margin: 20px 50px;
+            font-family: Arial, sans-serif;
+            background-color: #24252a;
+            color: #edf0f1;
+
+        }
+
+        h1{
+            color: #ebbb55;
+            margin: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #475598;
+            color: #f5bc40;
+            font-size: 20px;
+        }
+
+        .gImg {
+        width: 150px;
+        height: 150px;
+        border: 2px solid #cfcfc9;
+        border-radius: 10%;
+        margin: 50px auto 50px auto;
+        }
+        button {
+            background-color: #ebbb55;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            padding: 0px;
+            font-size: 25px;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #4a61d4;
+        }
+    </style>
+</head>
+<body>
+    <h1><img class="logo" src="img/logo-1.jpg" alt="logo">D&B Shopping Cart</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Add</th>
+                <th>Quantity</th>
+                <th>Sub</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody id="cart">
+            <!-- Items will be loaded here -->
+        </tbody>
+    </table>
+    <div style="text-align:end;margin: 20px;">
+        <button style="width: 20%;align-items:end;" onclick="checkout()">Checkout</button>
+    </div>
+    <script>
+        function checkout() {
+        // Perform an AJAX request to process_order.php
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // Display the thank you message
+                document.body.innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("POST", "checkout.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send();
+    }
+    document.addEventListener("DOMContentLoaded", function loadCart(user_id) {
+    // Perform an AJAX request to load_cart.php
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            // Insert the response from the PHP file into the HTML element with the id 'cart'
+            document.getElementById("cart").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("POST", "load_cart.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("user_id=" + user_id);
+});
+
+function addToCart(user_id, artwork_id, quantity) {
+    // Perform an AJAX request to add_to_cart.php
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            // Show the response from the PHP file
+            alert(this.responseText);
+            location.reload();
+            // Reload the cart to reflect the changes
+            loadCart(user_id);
+        }
+    };
+    xhttp.open("POST", "add_to_cart.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("user_id=" + user_id + "&artwork_id=" + artwork_id + "&quantity=" + quantity);
+}
+
+function removeFromCart(user_id, artwork_id) {
+    // Perform an AJAX request to remove_from_cart.php
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            // Show the response from the PHP file
+            alert(this.responseText);
+            location.reload();
+            // Reload the cart to reflect the changes
+            loadCart(user_id);
+        }
+    };
+    xhttp.open("POST", "remove_from_cart.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("user_id=" + user_id + "&artwork_id=" + artwork_id);
+}
+    </script>
+</body>
+</html>
