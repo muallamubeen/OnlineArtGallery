@@ -88,7 +88,7 @@ This project is a comprehensive web-based art gallery platform where different t
   ├── cart.html                         # Customer cart page
   ├── checkout.php                      # Customer checkout page
   ├── db.php                            # Database connection file
-  ├── insert_artwork.php                #Add artwork to database
+  ├── insert_artwork.php                # Add artwork to database
   ├── load_cart.html        
   ├── load_cart.php                     #Load cart from database 
   ├── add_to_cart.php                   # Script to add items to the cart
