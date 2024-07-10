@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $artwork_id = $_POST['artwork_id'];
     $quantity = $_POST['quantity'];
 
-    if (!$user_id) {
+    if ($user_id) {
     // Check if the user already has this artwork in their cart
     $stmt = $conn->prepare("SELECT * FROM cart WHERE user_id = ? AND artwork_id = ?");
     $stmt->bind_param("ii", $user_id, $artwork_id);
