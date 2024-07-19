@@ -24,7 +24,7 @@ This project is a comprehensive web-based art gallery platform where different t
 
 ## Requirements
 
-- A web server with PHP support (e.g., Apache, Nginx, XAMPP)
+- A web server with PHP support (e.g., Apache, XAMPP)
 - A modern web browser
 
 ## Installation
